@@ -22,11 +22,12 @@ def create_doctors():
     cold = Condition("cold")
     hypertension = Condition("hypertension")
     conditions = [headache, back_pain, copd, cough, hypertension, cold]
+    conditions1 = [headache, back_pain]
     languages = [Language.ENGLISH, Language.GERMAN]
 
     doctors = []
 
-    qualification1 = Qualification("someCertificate", conditions)
+    qualification1 = Qualification("someCertificate", conditions1)
     doctor1 = Doctor("John Doe", "male", [qualification1], languages)
     doctor1.add_available_time_slot(datetime(2023, 6, 4, 8, 30), datetime(2023, 6, 4, 9, 0))
     doctor1.add_available_time_slot(datetime(2023, 6, 4, 10, 30), datetime(2023, 6, 4, 11, 0))
@@ -55,6 +56,16 @@ def create_doctors():
     doctor3.add_available_time_slot(datetime(2023, 6, 5, 10, 00), datetime(2023, 6, 5, 10, 30))
     doctor3.add_available_time_slot(datetime(2023, 6, 5, 14, 00), datetime(2023, 6, 5, 14, 30))
     doctors.append(doctor3)
+
+    qualification4 = Qualification("someOtherCertificate", conditions)
+    doctor4 = Doctor("Larry Small", "male", [qualification4], languages)
+    doctor4.add_available_time_slot(datetime(2023, 6, 4, 9, 30), datetime(2023, 6, 4, 10, 0))
+    doctor4.add_available_time_slot(datetime(2023, 6, 4, 11, 30), datetime(2023, 6, 4, 12, 0))
+    doctor4.add_available_time_slot(datetime(2023, 6, 4, 15, 30), datetime(2023, 6, 4, 16, 0))
+    doctor4.add_available_time_slot(datetime(2023, 6, 5, 9, 30), datetime(2023, 6, 5, 10, 0))
+    doctor4.add_available_time_slot(datetime(2023, 6, 5, 11, 30), datetime(2023, 6, 5, 12, 0))
+    doctor4.add_available_time_slot(datetime(2023, 6, 5, 15, 30), datetime(2023, 6, 5, 16, 0))
+    doctors.append(doctor4)
 
     return doctors
 

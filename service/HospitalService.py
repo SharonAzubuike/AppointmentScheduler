@@ -90,4 +90,4 @@ class HospitalService:
                 if a == b:
                     language_match = True
             break
-        return language_match and condition_match
+        return language_match or condition_match
