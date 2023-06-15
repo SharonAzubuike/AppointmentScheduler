@@ -23,6 +23,7 @@ class HospitalService:
         for department in self.hospital.departments:
             for doctor in department.doctors:
                 if self.is_matching_doctor(client, doctor):
+                    print("A doctor has been found for client")
                     if available_time_slot in doctor.available_time_slots:
                         appointment = AppointmentRequest(client, doctor, available_time_slot.date_time_from,
                                                          available_time_slot.date_time_to)
@@ -33,7 +34,7 @@ class HospitalService:
                     else:
                         print("Selected time slot is not available for this particular doctor.")
                         return
-                print("No matching doctor was found for the client.")
+            print("Check again")
 
     @staticmethod
     def has_common_element(list1, list2):
