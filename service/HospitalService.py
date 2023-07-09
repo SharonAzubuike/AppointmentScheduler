@@ -78,13 +78,17 @@ class HospitalService:
 
     @staticmethod
     def is_matching_doctor(client, doctor):
-        if client.languages == doctor.languages:
-            return True
+        language_match = False
+        condition_match = False
 
         for x in client.existing_conditions:
             for y in doctor.qualifications:
                 for z in y.related_conditions:
-                    if x == z:
-                        return True
-
-        return False
+                    if x.name == z.name:
+                        condition_match = True
+        for a in client.languages:
+            for b in doctor.languages:
+                if a == b:
+                    language_match = True
+                break
+        return language_match and condition_match
